@@ -1,8 +1,13 @@
-"use client"
-
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+"use client";
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const services = [
   {
@@ -30,7 +35,7 @@ const services = [
     icon: "/placeholder.svg?height=40&width=40",
     description: "Custom mobile app development",
   },
-]
+];
 
 export default function DigitalMarketingSection() {
   return (
@@ -39,7 +44,7 @@ export default function DigitalMarketingSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative rounded-3xl overflow-hidden">
             <Image
-              src=""
+              src="/assets/digital-marketing-section.png"
               alt="Digital Marketing"
               width={600}
               height={400}
@@ -63,7 +68,10 @@ export default function DigitalMarketingSection() {
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {services.map((service, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/5">
+              <CarouselItem
+                key={index}
+                className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/5"
+              >
                 <Card className="bg-[#001a00] border-0">
                   <CardContent className="flex flex-col items-center justify-center p-6 h-full min-h-[200px]">
                     <div className="rounded-lg p-4 bg-[#002200] mb-4 w-16 h-16 flex items-center justify-center">
@@ -75,8 +83,12 @@ export default function DigitalMarketingSection() {
                         className="text-white"
                       />
                     </div>
-                    <h4 className="text-white text-center font-semibold whitespace-pre-line mb-2">{service.title}</h4>
-                    <p className="text-gray-400 text-sm text-center">{service.description}</p>
+                    <h4 className="text-white text-center font-semibold whitespace-pre-line mb-2">
+                      {service.title}
+                    </h4>
+                    <p className="text-gray-400 text-sm text-center">
+                      {service.description}
+                    </p>
                   </CardContent>
                 </Card>
               </CarouselItem>
@@ -87,6 +99,5 @@ export default function DigitalMarketingSection() {
         </Carousel>
       </div>
     </section>
-  )
+  );
 }
-

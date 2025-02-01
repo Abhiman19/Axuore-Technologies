@@ -1,4 +1,10 @@
-import { ArrowRight, Linkedin, Instagram, Phone, Mail, MapPin } from "lucide-react"
+import { ArrowRight, Phone, Mail, MapPin, Linkedin } from "lucide-react"
+import {
+  SiFacebook,
+  SiInstagram,
+  SiX,
+  SiYoutube,
+} from "@icons-pack/react-simple-icons";
 import Link from "next/link"
 
 export default function ContactSection() {
@@ -16,7 +22,7 @@ export default function ContactSection() {
           {/* Social Links */}
           <div className="flex space-x-6">
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/axuore-technologies/"
               target="_blank"
               className="text-white/80 hover:text-white transition-colors"
             >
@@ -24,11 +30,27 @@ export default function ContactSection() {
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/axuore_official/"
               target="_blank"
               className="text-white/80 hover:text-white transition-colors"
             >
-              <Instagram className="w-6 h-6" />
+              <SiInstagram className="w-6 h-6" />
+              <span className="sr-only">Instagram</span>
+            </Link>
+            <Link
+              href="https://x.com/Axuore_Official"
+              target="_blank"
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              <SiX className="w-6 h-6" />
+              <span className="sr-only">Instagram</span>
+            </Link>
+            <Link
+              href="https://www.facebook.com/profile.php?id=61571339259499"
+              target="_blank"
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              <SiFacebook className="w-6 h-6" />
               <span className="sr-only">Instagram</span>
             </Link>
           </div>

@@ -42,7 +42,7 @@ export default function ServicesSection() {
           </div>
           <div className="relative rounded-3xl overflow-hidden">
             <Image
-              src="/assets/technology-solutions.jpg"
+              src="/assets/service-section.jpg"
               alt="Technology Solutions"
               width={600}
               height={400}
