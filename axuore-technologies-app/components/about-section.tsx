@@ -42,7 +42,7 @@ export default function AboutSection() {
             <div className="absolute inset-0 bg-purple-500/20 rounded-full filter blur-3xl"></div>
             <div className="relative z-10">
               <Image
-                src=""
+                src="/assets/about.svg"
                 alt="Team Illustration"
                 width={500}
                 height={400}
