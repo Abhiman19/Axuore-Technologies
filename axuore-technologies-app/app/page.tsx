@@ -6,7 +6,7 @@ import ServicesSection from "@/components/services-section";
 import TestimonialsContact from "@/components/testmonials-contact";
 export default function Axuore() {
   return (
-    <div className="no-scrollbar h-screen">
+    <div className="h-screen">
       <LandingPage />
       <ServicesSection />
       <DigitalMarketingSection />

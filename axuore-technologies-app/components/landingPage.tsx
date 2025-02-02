@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function LandingPage() {
   return (
-    <div className="no-scrollbar h-screen bg-black bg-[url('/assets/download.svg')] bg-no-repeat lg:bg-[length:700px] text-white font-inknut bg-[right_50px]">
+    <div className="h-screen bg-black bg-[url('/assets/download.svg')] bg-no-repeat lg:bg-[length:700px] text-white font-inknut bg-[right_50px]">
 
       {/* Navigation */}
       <nav className="container mx-auto px-4 py-6">
