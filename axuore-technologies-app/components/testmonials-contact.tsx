@@ -48,7 +48,7 @@ const testimonials = [
 
 export default function TestimonialsContact() {
   return (
-    <section className="bg-black min-h-screen py-16 px-4 flex items-center">
+    <section className="bg-black min-h-screen py-16 px-[72px] block items-center">
       <div className="container mx-auto flex flex-col space-y-12 py-8 px-4">
         {/* Testimonials Section (Carousel) */}
         <div className="w-full flex flex-col">

@@ -21,7 +21,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="bg-black min-h-screen py-16 px-4">
+    <section className="bg-black max-h-screen py-16 px-[72px] block">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-white mb-8">About Us .....</h2>
 

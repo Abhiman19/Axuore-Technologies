@@ -7,9 +7,9 @@ export default function LandingPage() {
     <div className="h-screen bg-black bg-[url('/assets/download.svg')] bg-no-repeat lg:bg-[length:700px] text-white font-inknut bg-[right_50px]">
 
       {/* Navigation */}
-      <nav className="container mx-auto px-4 py-6">
+      <nav className="container mx-auto px-[72px] py-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center">
             <Image
               src="/assets/PNG.png"
               alt="Axuore Logo"

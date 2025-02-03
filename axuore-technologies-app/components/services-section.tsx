@@ -36,10 +36,10 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="bg-black max-h-screen py-8 px-4 flex flex-col">
-      <div className="py-8 px-4">
+      <div className="py-8 px-[72px]">
         <h2 className="text-3xl font-bold text-white">We Do ...</h2>
       </div>
-      <div className="container mx-auto text-center py-8 px-4">
+      <div className="container mx-auto text-center py-8 px-[72px]">
         <div className="flex flex-col md:flex-row items-center justify-between mb-8">
           <div className="md:text-pretty max-w-lg">
             <h3 className="text-4xl font-bold text-white mb-6">

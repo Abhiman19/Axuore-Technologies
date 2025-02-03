@@ -9,10 +9,10 @@ import Link from "next/link"
 
 export default function ContactSection() {
   return (
-    <section className="bg-black min-h-screen py-16 px-4">
+    <section className="bg-black min-h-screen py-16 px-[72px]">
       <div className="container mx-auto">
         <div className="mb-12">
-          <div className="flex items-center space-x-4 group">
+          <div className="flex space-x-4 group">
             <h2 className="text-4xl md:text-5xl font-bold text-white">LET'S TALK</h2>
             <ArrowRight className="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" />
           </div>

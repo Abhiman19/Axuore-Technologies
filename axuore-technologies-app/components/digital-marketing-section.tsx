@@ -39,7 +39,7 @@ const services = [
 
 export default function DigitalMarketingSection() {
   return (
-    <section className="bg-black max-h-screen flex flex-col py-16 px-4">
+    <section className="bg-black max-h-screen flex flex-col py-16 px-[72px]">
       <div className="container mx-auto text-center py-8 px-4">
         {/* Top Content Section */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-16">
