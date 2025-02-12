@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Users, Target, Flag, Phone, Mail, MapPin, Linkedin } from "lucide-react";
@@ -11,18 +10,34 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   SiFacebook,
   SiInstagram,
   SiX,
-  SiYoutube,
 } from "@icons-pack/react-simple-icons";
+import TestimonialsContact from "@/components/contact";
 
-export default function Axuore() {
+const gettestimonials = async () => {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/testimonials`, { cache: "no-store" });
+
+    if (!res.ok) throw new Error("Failed to fetch testimonials");
+
+    return res.json();
+  } catch (error) {
+    console.error("Error fetching testimonials:", error);
+    return { testimonials: [] };
+  }
+};
+
+
+
+export default async function Axuore() {
+
+  const { testimonials } = await gettestimonials();
   const services = [
     {
       title: "UI / UX\nDesign",
@@ -87,38 +102,6 @@ export default function Axuore() {
       title: "Success Rate",
       value: "98%",
       icon: Flag,
-    },
-  ];
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      avatar: "/placeholder.svg?height=40&width=40",
-      content:
-        "Really amazing experience working with the team. They delivered exactly what we needed.",
-    },
-    {
-      name: "Michael Chen",
-      avatar: "/placeholder.svg?height=40&width=40",
-      content:
-        "Great communication and excellent results. Would highly recommend their services.",
-    },
-    {
-      name: "Emma Davis",
-      avatar: "/placeholder.svg?height=40&width=40",
-      content:
-        "Professional team that goes above and beyond. Very satisfied with the outcome.",
-    },
-    {
-      name: "John Doe",
-      avatar: "/placeholder.svg?height=40&width=40",
-      content:
-        "Excellent service! The project was completed on time with exceptional quality.",
-    },
-    {
-      name: "Jane Smith",
-      avatar: "/placeholder.svg?height=40&width=40",
-      content:
-        "Very responsive and dedicated team. Helped us achieve our business goals.",
     },
   ];
   return (
@@ -360,7 +343,6 @@ export default function Axuore() {
       {/* Testimonials & Contact Section */}
       <section className="bg-black py-12 px-6 lg:px-16" id="work">
         <div className="container mx-auto flex flex-col space-y-16">
-          {/* Testimonials Section */}
           <div className="w-full flex flex-col text-center">
             <h2 className="text-3xl font-bold text-white mb-12">
               What Our Clients Say ...
@@ -368,7 +350,7 @@ export default function Axuore() {
 
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
               <CarouselContent className="-ml-2 md:-ml-4">
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map((testimonial: any, index: number) => (
                   <CarouselItem
                     key={index}
                     className="pl-2 md:pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
@@ -380,7 +362,7 @@ export default function Axuore() {
                           <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
                         </Avatar>
                         <p className="text-sm text-gray-300 leading-relaxed">
-                          {testimonial.content}
+                          {testimonial.description}
                         </p>
                         <p className="text-sm font-medium text-white">
                           {testimonial.name}
@@ -394,44 +376,7 @@ export default function Axuore() {
               <CarouselNext className="hidden md:flex" />
             </Carousel>
           </div>
-
-          {/* Contact Form Section */}
-          <div className="relative w-full max-w-3xl mx-auto">
-            {/* Background Glow Effect */}
-            <div className="absolute inset-0 bg-purple-500/10 rounded-3xl filter blur-3xl pointer-events-none"></div>
-
-            <Card className="relative bg-[#2F4F2F]/80 border-0 backdrop-blur-sm rounded-3xl">
-              <CardContent className="p-10">
-                <h2 className="text-3xl font-bold text-white text-center mb-8">
-                  Ask Us Anything ...
-                </h2>
-                <form className="space-y-6">
-                  <Input
-                    placeholder="Your Name"
-                    className="bg-[#1a2f1a] border-0 text-white placeholder:text-gray-400 px-4 py-3"
-                  />
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    className="bg-[#1a2f1a] border-0 text-white placeholder:text-gray-400 px-4 py-3"
-                  />
-                  <Input
-                    placeholder="Contact"
-                    className="bg-[#1a2f1a] border-0 text-white placeholder:text-gray-400 px-4 py-3"
-                  />
-                  <Textarea
-                    placeholder="Ask Us Anything ..."
-                    className="bg-[#1a2f1a] border-0 text-white placeholder:text-gray-400 px-4 py-3 min-h-[120px]"
-                  />
-                  <Button
-                    className="w-full bg-[#1a2f1a] hover:bg-[#2F4F2F] text-white py-3 text-lg"
-                  >
-                    Submit
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+          <TestimonialsContact />
         </div>
       </section>
 
