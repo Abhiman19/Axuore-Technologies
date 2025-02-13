@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Users, Target, Flag, Phone, Mail, MapPin, Linkedin } from "lucide-react";
+import {
+  ArrowRight,
+  Phone,
+  Mail,
+  MapPin,
+  Users,
+  Target,
+  Flag,
+  Linkedin,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,19 +19,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import {
-  SiFacebook,
-  SiInstagram,
-  SiX,
-} from "@icons-pack/react-simple-icons";
+import { SiFacebook, SiInstagram, SiX } from "@icons-pack/react-simple-icons";
 import TestimonialsContact from "@/components/contact";
 
 const gettestimonials = async () => {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/testimonials`, { cache: "no-store" });
+    const res = await fetch(`${baseUrl}/api/testimonials`, {
+      cache: "no-store",
+    });
 
     if (!res.ok) throw new Error("Failed to fetch testimonials");
 
@@ -33,11 +39,25 @@ const gettestimonials = async () => {
   }
 };
 
+const getstats = async () => {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/stats`, {
+      cache: "no-store",
+    });
 
+    if (!res.ok) throw new Error("Failed to fetch stats");
+
+    return res.json();
+  } catch (error) {
+    console.error("Error fetching stats:", error);
+    return { testimonials: [] };
+  }
+};
 
 export default async function Axuore() {
-
   const { testimonials } = await gettestimonials();
+  const { stats } = await getstats();
   const services = [
     {
       title: "UI / UX\nDesign",
@@ -87,26 +107,23 @@ export default async function Axuore() {
       description: "Custom mobile app development",
     },
   ];
-  const stats = [
+  const statsIcon = [
     {
-      title: "Active Clients",
-      value: "100+",
       icon: Users,
     },
     {
-      title: "Projects Done",
-      value: "100+",
       icon: Target,
     },
     {
-      title: "Success Rate",
-      value: "98%",
       icon: Flag,
     },
   ];
   return (
     <div className="h-screen">
-      <div className="min-h-screen bg-black bg-[url('/assets/download.svg')] bg-no-repeat lg:bg-[length:700px] bg-right text-white font-inknut" id="home">
+      <div
+        className="min-h-screen bg-black bg-[url('/assets/download.svg')] bg-no-repeat lg:bg-[length:700px] bg-right text-white font-inknut"
+        id="home"
+      >
         {/* Navigation */}
         <nav className="container mx-auto px-6 lg:px-16 py-6">
           <div className="flex items-center justify-between">
@@ -164,8 +181,8 @@ export default async function Axuore() {
               Marketing Excellence.
             </h1>
             <p className="text-lg md:text-xl text-gray-300">
-              Empowering your brand with innovative technology and strategic marketing
-              to achieve unparalleled growth.
+              Empowering your brand with innovative technology and strategic
+              marketing to achieve unparalleled growth.
             </p>
             <button className="group inline-flex items-center space-x-2 bg-purple-900/50 border border-purple-500 px-6 py-3 rounded-md hover:bg-purple-900 transition-colors">
               <span>Explore More</span>
@@ -176,7 +193,10 @@ export default async function Axuore() {
       </div>
 
       {/* Services Section */}
-      <section className="bg-black py-12 px-6 lg:px-16 flex flex-col relative z-0" id="we-do">
+      <section
+        className="bg-black py-12 px-6 lg:px-16 flex flex-col relative z-0"
+        id="we-do"
+      >
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-white mb-12">We Do ...</h2>
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-12">
@@ -254,7 +274,10 @@ export default async function Axuore() {
           <Carousel opts={{ align: "start", loop: true }} className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
               {other_services.map((service, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/5">
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/5"
+                >
                   <Card className="bg-[#001a00] border-0 min-h-[320px]">
                     <CardContent className="flex flex-col items-center text-center justify-center p-6 h-full">
                       <div className="rounded-lg p-4 bg-[#002200] mb-4 w-40 h-40 flex items-center justify-center">
@@ -269,7 +292,9 @@ export default async function Axuore() {
                       <h4 className="text-white font-semibold whitespace-pre-line mb-2">
                         {service.title}
                       </h4>
-                      <p className="text-gray-400 text-sm">{service.description}</p>
+                      <p className="text-gray-400 text-sm">
+                        {service.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -290,14 +315,15 @@ export default async function Axuore() {
             {/* About Us Text */}
             <div className="space-y-6">
               <p className="text-lg text-gray-200">
-                At Axoure Technologies, we specialize in delivering innovative IT
-                solutions and impactful digital marketing services. Our expert team is
-                dedicated to helping businesses streamline operations, enhance their online
-                presence, and achieve sustainable growth.
+                At Axoure Technologies, we specialize in delivering innovative
+                IT solutions and impactful digital marketing services. Our
+                expert team is dedicated to helping businesses streamline
+                operations, enhance their online presence, and achieve
+                sustainable growth.
               </p>
               <p className="text-lg text-gray-200">
-                With a focus on creativity, technology, and strategy, we turn ideas into
-                reality and ensure your success in the digital era.
+                With a focus on creativity, technology, and strategy, we turn
+                ideas into reality and ensure your success in the digital era.
               </p>
             </div>
 
@@ -318,20 +344,24 @@ export default async function Axuore() {
 
           {/* Stats Section */}
           <div className="grid md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
+            {stats.map((stat: any, index: number) => {
+              const Icon = statsIcon[index].icon;
               return (
                 <div
                   key={index}
                   className="bg-purple-500/10 rounded-lg p-6 backdrop-blur-sm 
-                       transform hover:scale-105 transition-transform duration-300"
+                transform hover:scale-105 transition-transform duration-300"
                 >
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="p-4 bg-purple-500/20 rounded-full">
                       <Icon className="w-6 h-6 text-purple-300" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white">{stat.title}</h3>
-                    <p className="text-3xl font-bold text-purple-300">{stat.value}</p>
+                    <h3 className="text-xl font-semibold text-white">
+                      {stat.title}
+                    </h3>
+                    <p className="text-3xl font-bold text-purple-300">
+                      {stat.value}
+                    </p>
                   </div>
                 </div>
               );
@@ -349,23 +379,33 @@ export default async function Axuore() {
             </h2>
 
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
-              <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselContent className="-ml-3 md:-ml-6">
                 {testimonials.map((testimonial: any, index: number) => (
                   <CarouselItem
                     key={index}
-                    className="pl-2 md:pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                    className="pl-3 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                   >
-                    <Card className="bg-[#2F4F2F]/80 border-0 p-6 rounded-xl min-h-[300px]">
-                      <CardContent className="flex flex-col items-center text-center space-y-4 h-full">
-                        <Avatar className="w-16 h-16">
-                          <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                          <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
-                        </Avatar>
-                        <p className="text-sm text-gray-300 leading-relaxed">
+                    <Card className="bg-[#2F4F2F]/80 border-0 p-4 rounded-xl min-h-[200px] max-w-[320px] mx-auto">
+                      <CardContent className="flex flex-col space-y-3 h-full">
+                        {/* Profile Picture & Name */}
+                        <div className="flex items-center space-x-3">
+                          <Avatar className="w-12 h-12">
+                            <AvatarImage
+                              src={testimonial.avatar}
+                              alt={testimonial.name}
+                            />
+                            <AvatarFallback>
+                              {testimonial.name[0]}
+                            </AvatarFallback>
+                          </Avatar>
+                          <p className="text-lg font-medium text-white">
+                            {testimonial.name}
+                          </p>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-sm text-gray-300 leading-relaxed text-left">
                           {testimonial.description}
-                        </p>
-                        <p className="text-sm font-medium text-white">
-                          {testimonial.name}
                         </p>
                       </CardContent>
                     </Card>
@@ -384,7 +424,9 @@ export default async function Axuore() {
         <div className="container mx-auto">
           <div className="mb-12">
             <div className="flex space-x-4 group">
-              <h2 className="text-4xl md:text-5xl font-bold text-white">LET'S TALK</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                LET'S TALK
+              </h2>
               <ArrowRight className="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" />
             </div>
           </div>
@@ -456,7 +498,6 @@ export default async function Axuore() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
