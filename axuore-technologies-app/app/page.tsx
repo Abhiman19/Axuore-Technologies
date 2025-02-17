@@ -121,11 +121,11 @@ export default async function Axuore() {
   return (
     <div className="h-screen">
       <div
-        className="min-h-screen bg-black bg-[url('/assets/download.svg')] bg-no-repeat lg:bg-[length:700px] bg-right text-white font-inknut"
+        className="min-h-screen bg-[url('/assets/landingPage2.jpg')] bg-cover text-white font-inknut"
         id="home"
       >
         {/* Navigation */}
-        <nav className="container mx-auto px-6 lg:px-16 py-6">
+        <nav className="container mx-auto px-6 lg:px-13 py-6">
           <div className="flex items-center justify-between">
             <Link href="#home" className="flex items-center">
               <Image
@@ -174,7 +174,7 @@ export default async function Axuore() {
         </nav>
 
         {/* Hero Section */}
-        <section className="container mx-auto px-6 lg:px-16 py-20 md:py-32 relative z-10">
+        <section className="container mx-auto px-6 lg:px-13 md:py-32">
           <div className="space-y-10 max-w-2xl">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">
               Transforming Businesses with Cutting-Edge IT Solutions and Digital
@@ -194,12 +194,12 @@ export default async function Axuore() {
 
       {/* Services Section */}
       <section
-        className="bg-black py-12 px-6 lg:px-16 flex flex-col relative z-0"
+        className="bg-black py-12 px-6 lg:px-14 flex flex-col relative z-0"
         id="we-do"
       >
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12">We Do ...</h2>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-12">
+          <h2 className="text-3xl font-bold text-white mb-8">We Do ...</h2>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-8">
             <div className="max-w-lg text-left">
               <h3 className="text-3xl md:text-4xl font-bold text-center text-white">
                 Innovative IT Solutions for a Smarter Tomorrow.
@@ -207,10 +207,10 @@ export default async function Axuore() {
             </div>
             <div className="relative rounded-3xl overflow-hidden">
               <Image
-                src="/assets/service-section.jpg"
+                src="/assets/service-section2.png"
                 alt="Technology Solutions"
-                width={600}
-                height={300}
+                width={500}
+                height={200}
                 className="object-cover"
               />
             </div>
@@ -309,11 +309,11 @@ export default async function Axuore() {
       {/* About Us Section */}
       <section className="bg-black py-12 px-6 lg:px-16" id="about">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12">About Us</h2>
+          <h2 className="text-3xl font-bold text-white">About Us</h2>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-4 items-center mb-16">
             {/* About Us Text */}
-            <div className="space-y-6">
+            <div className="space-y-3">
               <p className="text-lg text-gray-200">
                 At Axoure Technologies, we specialize in delivering innovative
                 IT solutions and impactful digital marketing services. Our
@@ -420,84 +420,66 @@ export default async function Axuore() {
         </div>
       </section>
 
-      <section className="bg-black min-h-screen py-12 px-[72px]" id="contacts">
-        <div className="container mx-auto">
-          <div className="mb-12">
-            <div className="flex space-x-4 group">
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                LET'S TALK
-              </h2>
-              <ArrowRight className="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" />
-            </div>
+      <footer className="bg-black py-12 px-[72px]" id="contacts">
+      <div className="container mx-auto">
+        <div className="mb-8">
+          <div className="flex space-x-4 group">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              LET'S TALK
+            </h2>
+            <ArrowRight className="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" />
+          </div>
+        </div>
+
+        <div className="space-y-8">
+          {/* Social Links */}
+          <div className="flex space-x-6">
+            <Link href="https://www.linkedin.com/company/axuore-technologies/" target="_blank" className="text-white/80 hover:text-white transition-colors">
+              <Linkedin className="w-6 h-6" />
+              <span className="sr-only">LinkedIn</span>
+            </Link>
+            <Link href="https://www.instagram.com/axuore_official/" target="_blank" className="text-white/80 hover:text-white transition-colors">
+              <SiInstagram className="w-6 h-6" />
+              <span className="sr-only">Instagram</span>
+            </Link>
+            <Link href="https://x.com/Axuore_Official" target="_blank" className="text-white/80 hover:text-white transition-colors">
+              <SiX className="w-6 h-6" />
+              <span className="sr-only">X</span>
+            </Link>
+            <Link href="https://www.facebook.com/profile.php?id=61571339259499" target="_blank" className="text-white/80 hover:text-white transition-colors">
+              <SiFacebook className="w-6 h-6" />
+              <span className="sr-only">Facebook</span>
+            </Link>
           </div>
 
-          <div className="space-y-12">
-            {/* Social Links */}
-            <div className="flex space-x-6">
-              <Link
-                href="https://www.linkedin.com/company/axuore-technologies/"
-                target="_blank"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <Linkedin className="w-6 h-6" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="https://www.instagram.com/axuore_official/"
-                target="_blank"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <SiInstagram className="w-6 h-6" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link
-                href="https://x.com/Axuore_Official"
-                target="_blank"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <SiX className="w-6 h-6" />
-                <span className="sr-only">X</span>
-              </Link>
-              <Link
-                href="https://www.facebook.com/profile.php?id=61571339259499"
-                target="_blank"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <SiFacebook className="w-6 h-6" />
-                <span className="sr-only">Facebook</span>
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-4">
+              <Phone className="w-6 h-6 text-white/60" />
+              <Link href="tel:+919172911970" className="text-lg text-white hover:text-white/80 transition-colors">
+                +91 9172911970
               </Link>
             </div>
 
-            {/* Contact Information */}
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <Phone className="w-6 h-6 text-white/60" />
-                <Link
-                  href="tel:+919172911970"
-                  className="text-lg text-white hover:text-white/80 transition-colors"
-                >
-                  +91 9172911970
-                </Link>
-              </div>
+            <div className="flex items-center space-x-4">
+              <Mail className="w-6 h-6 text-white/60" />
+              <Link href="mailto:info.axuore@gmail.com" className="text-lg text-white hover:text-white/80 transition-colors">
+                info.axuore@gmail.com
+              </Link>
+            </div>
 
-              <div className="flex items-center space-x-4">
-                <Mail className="w-6 h-6 text-white/60" />
-                <Link
-                  href="mailto:info.axuore@gmail.com"
-                  className="text-lg text-white hover:text-white/80 transition-colors"
-                >
-                  info.axuore@gmail.com
-                </Link>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <MapPin className="w-6 h-6 text-white/60" />
-                <p className="text-lg text-white">Pune, India.</p>
-              </div>
+            <div className="flex items-center space-x-4">
+              <MapPin className="w-6 h-6 text-white/60" />
+              <p className="text-lg text-white">Pune, India.</p>
             </div>
           </div>
         </div>
-      </section>
+        
+        <div className="mt-8 border-t border-white/20 pt-6 text-center text-white/60">
+          <p>&copy; {new Date().getFullYear()} Axuore Technologies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 }
