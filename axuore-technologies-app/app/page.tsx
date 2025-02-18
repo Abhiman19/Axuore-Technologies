@@ -119,9 +119,9 @@ export default async function Axuore() {
     },
   ];
   return (
-    <div className="h-screen">
+    <div className="h-screen font-inknut">
       <div
-        className="min-h-screen bg-[url('/assets/landingPage2.jpg')] bg-cover text-white font-inknut"
+        className="min-h-screen bg-[url('/assets/landingPage2.jpg')] bg-cover text-white"
         id="home"
       >
         {/* Navigation */}
@@ -194,15 +194,19 @@ export default async function Axuore() {
 
       {/* Services Section */}
       <section
-        className="bg-black py-12 px-6 lg:px-14 flex flex-col relative z-0"
+        className="relative min-h-screen flex flex-col justify-center bg-gradient-to-br from-black via-gray-900 to-emerald-900 overflow-hidden px-6 lg:px-14"
         id="we-do"
       >
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8">We Do ...</h2>
+        {/* "We Do ..." positioned at the top-left */}
+        <h2 className="absolute top-6 left-6 md:top-12 md:left-12 text-3xl font-bold text-emerald-400">
+        Discover Our Comprehensive Services
+        </h2>
+
+        <div className="container mx-auto flex-grow flex flex-col justify-center">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-8">
             <div className="max-w-lg text-left">
               <h3 className="text-3xl md:text-4xl font-bold text-center text-white">
-                Innovative IT Solutions for a Smarter Tomorrow.
+                Innovative Solutions for a Smarter Tomorrow.
               </h3>
             </div>
             <div className="relative rounded-3xl overflow-hidden">
@@ -217,14 +221,17 @@ export default async function Axuore() {
           </div>
 
           {/* Services Carousel */}
-          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+          <Carousel
+            opts={{ align: "start", loop: true }}
+            className="w-full max-h-[80vh]"
+          >
             <CarouselContent className="-ml-2 md:-ml-4">
               {services.map((service, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/5"
+                  className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/5 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30"
                 >
-                  <Card className="bg-black border border-emerald-500/20">
+                  <Card className="bg-[#001a00] backdrop-blur-lg border border-emerald-500/30 rounded-xl shadow-md">
                     <CardContent className="flex flex-col items-center text-center justify-center p-6">
                       <div className="rounded-lg p-4 bg-black border border-emerald-500/20 mb-4">
                         <Image
@@ -307,29 +314,39 @@ export default async function Axuore() {
       </section>
 
       {/* About Us Section */}
-      <section className="bg-black py-12 px-6 lg:px-16" id="about">
+      <section
+        className="bg-black min-h-screen flex items-center py-12 px-6 lg:px-16"
+        id="about"
+      >
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white">About Us</h2>
+          <h2 className="text-3xl font-bold text-white mb-8">About Us</h2>
 
-          <div className="grid lg:grid-cols-2 gap-4 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-center mb-16">
             {/* About Us Text */}
-            <div className="space-y-3">
-              <p className="text-lg text-gray-200">
+            <div className="space-y-5">
+              <p className="text-lg text-gray-200 leading-relaxed">
                 At Axoure Technologies, we specialize in delivering innovative
                 IT solutions and impactful digital marketing services. Our
                 expert team is dedicated to helping businesses streamline
                 operations, enhance their online presence, and achieve
                 sustainable growth.
               </p>
-              <p className="text-lg text-gray-200">
+              <p className="text-lg text-gray-200 leading-relaxed">
                 With a focus on creativity, technology, and strategy, we turn
                 ideas into reality and ensure your success in the digital era.
               </p>
             </div>
 
-            {/* Image with Glow Effect */}
+            {/* Image with Refined Glow Effect */}
             <div className="relative flex justify-center">
-              <div className="absolute inset-0 bg-purple-500/20 rounded-full filter blur-3xl"></div>
+              <div
+                className="absolute -inset-6 md:-inset-8 bg-purple-500/30 rounded-full 
+          filter blur-[40px] animate-pulse"
+              ></div>
+              <div
+                className="absolute -inset-8 md:-inset-10 bg-purple-500/20 rounded-full 
+          filter blur-[60px] opacity-70 animate-pulse"
+              ></div>
               <div className="relative z-10">
                 <Image
                   src="/assets/about.svg"
@@ -343,17 +360,17 @@ export default async function Axuore() {
           </div>
 
           {/* Stats Section */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-10">
             {stats.map((stat: any, index: number) => {
               const Icon = statsIcon[index].icon;
               return (
                 <div
                   key={index}
-                  className="bg-purple-500/10 rounded-lg p-6 backdrop-blur-sm 
-                transform hover:scale-105 transition-transform duration-300"
+                  className="bg-purple-500/10 rounded-lg p-6 backdrop-blur-lg 
+            transform hover:scale-105 transition-transform duration-300 shadow-lg"
                 >
                   <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="p-4 bg-purple-500/20 rounded-full">
+                    <div className="p-4 bg-purple-500/20 rounded-full shadow-md">
                       <Icon className="w-6 h-6 text-purple-300" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
@@ -374,8 +391,8 @@ export default async function Axuore() {
       <section className="bg-black py-12 px-6 lg:px-16" id="work">
         <div className="container mx-auto flex flex-col space-y-16">
           <div className="w-full flex flex-col text-center">
-            <h2 className="text-3xl font-bold text-white mb-12">
-              What Our Clients Say ...
+            <h2 className="text-4xl font-bold text-white mb-12">
+              Client Experiences with Our Services
             </h2>
 
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
@@ -385,11 +402,11 @@ export default async function Axuore() {
                     key={index}
                     className="pl-3 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                   >
-                    <Card className="bg-[#2F4F2F]/80 border-0 p-4 rounded-xl min-h-[200px] max-w-[320px] mx-auto">
-                      <CardContent className="flex flex-col space-y-3 h-full">
+                    <Card className="bg-[#2F4F2F]/80 border-0 p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105">
+                      <CardContent className="flex flex-col space-y-4 h-full">
                         {/* Profile Picture & Name */}
-                        <div className="flex items-center space-x-3">
-                          <Avatar className="w-12 h-12">
+                        <div className="flex items-center space-x-4">
+                          <Avatar className="w-14 h-14">
                             <AvatarImage
                               src={testimonial.avatar}
                               alt={testimonial.name}
@@ -398,13 +415,18 @@ export default async function Axuore() {
                               {testimonial.name[0]}
                             </AvatarFallback>
                           </Avatar>
-                          <p className="text-lg font-medium text-white">
-                            {testimonial.name}
-                          </p>
+                          <div>
+                            <p className="text-xl font-semibold text-white">
+                              {testimonial.name}
+                            </p>
+                            <p className="text-sm text-gray-400">
+                              {testimonial.position}
+                            </p>
+                          </div>
                         </div>
 
                         {/* Description */}
-                        <p className="text-sm text-gray-300 leading-relaxed text-left">
+                        <p className="text-base text-gray-300 leading-relaxed text-left">
                           {testimonial.description}
                         </p>
                       </CardContent>
@@ -420,66 +442,95 @@ export default async function Axuore() {
         </div>
       </section>
 
-      <footer className="bg-black py-12 px-[72px]" id="contacts">
-      <div className="container mx-auto">
-        <div className="mb-8">
-          <div className="flex space-x-4 group">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
-              LET'S TALK
-            </h2>
-            <ArrowRight className="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" />
-          </div>
-        </div>
-
-        <div className="space-y-8">
-          {/* Social Links */}
-          <div className="flex space-x-6">
-            <Link href="https://www.linkedin.com/company/axuore-technologies/" target="_blank" className="text-white/80 hover:text-white transition-colors">
-              <Linkedin className="w-6 h-6" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-            <Link href="https://www.instagram.com/axuore_official/" target="_blank" className="text-white/80 hover:text-white transition-colors">
-              <SiInstagram className="w-6 h-6" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link href="https://x.com/Axuore_Official" target="_blank" className="text-white/80 hover:text-white transition-colors">
-              <SiX className="w-6 h-6" />
-              <span className="sr-only">X</span>
-            </Link>
-            <Link href="https://www.facebook.com/profile.php?id=61571339259499" target="_blank" className="text-white/80 hover:text-white transition-colors">
-              <SiFacebook className="w-6 h-6" />
-              <span className="sr-only">Facebook</span>
-            </Link>
+      {/* Contact Section */}
+      <footer
+        className="bg-black py-12 px-[72px]"
+        id="contacts"
+      >
+        <div className="container mx-auto">
+          <div className="mb-8">
+            <div className="flex space-x-4 group">
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                LET'S TALK
+              </h2>
+              <ArrowRight className="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" />
+            </div>
           </div>
 
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-4">
-              <Phone className="w-6 h-6 text-white/60" />
-              <Link href="tel:+919172911970" className="text-lg text-white hover:text-white/80 transition-colors">
-                +91 9172911970
+          <div className="space-y-8">
+            {/* Social Links */}
+            <div className="flex space-x-6">
+              <Link
+                href="https://www.linkedin.com/company/axuore-technologies/"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <Linkedin className="w-6 h-6" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+              <Link
+                href="https://www.instagram.com/axuore_official/"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <SiInstagram className="w-6 h-6" />
+                <span className="sr-only">Instagram</span>
+              </Link>
+              <Link
+                href="https://x.com/Axuore_Official"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <SiX className="w-6 h-6" />
+                <span className="sr-only">X</span>
+              </Link>
+              <Link
+                href="https://www.facebook.com/profile.php?id=61571339259499"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <SiFacebook className="w-6 h-6" />
+                <span className="sr-only">Facebook</span>
               </Link>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <Mail className="w-6 h-6 text-white/60" />
-              <Link href="mailto:info.axuore@gmail.com" className="text-lg text-white hover:text-white/80 transition-colors">
-                info.axuore@gmail.com
-              </Link>
-            </div>
+            {/* Contact Information */}
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4">
+                <Phone className="w-6 h-6 text-white/60" />
+                <Link
+                  href="tel:+919172911970"
+                  className="text-lg text-white hover:text-white/80 transition-colors"
+                >
+                  +91 9172911970
+                </Link>
+              </div>
 
-            <div className="flex items-center space-x-4">
-              <MapPin className="w-6 h-6 text-white/60" />
-              <p className="text-lg text-white">Pune, India.</p>
+              <div className="flex items-center space-x-4">
+                <Mail className="w-6 h-6 text-white/60" />
+                <Link
+                  href="mailto:info.axuore@gmail.com"
+                  className="text-lg text-white hover:text-white/80 transition-colors"
+                >
+                  info.axuore@gmail.com
+                </Link>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <MapPin className="w-6 h-6 text-white/60" />
+                <p className="text-lg text-white">Pune, India.</p>
+              </div>
             </div>
           </div>
+
+          <div className="mt-8 border-t border-white/20 pt-6 text-center text-white/60">
+            <p>
+              &copy; {new Date().getFullYear()} Axuore Technologies. All rights
+              reserved.
+            </p>
+          </div>
         </div>
-        
-        <div className="mt-8 border-t border-white/20 pt-6 text-center text-white/60">
-          <p>&copy; {new Date().getFullYear()} Axuore Technologies. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
     </div>
   );
 }
