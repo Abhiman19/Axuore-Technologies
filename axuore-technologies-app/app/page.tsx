@@ -121,7 +121,7 @@ export default async function Axuore() {
   return (
     <div className="h-screen font-inknut">
       <div
-        className="min-h-screen bg-[url('/assets/landingPage2.jpg')] bg-cover text-white"
+        className="min-h-screen bg-[url('/assets/landingPage2.jpg')] bg-cover bg-no-repeat bg-bottom text-white"
         id="home"
       >
         {/* Navigation */}
@@ -174,7 +174,7 @@ export default async function Axuore() {
         </nav>
 
         {/* Hero Section */}
-        <section className="container mx-auto px-6 lg:px-13 md:py-32">
+        <section className="container mx-auto px-6 lg:px-13 md:py-16">
           <div className="space-y-10 max-w-2xl">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">
               Transforming Businesses with Cutting-Edge IT Solutions and Digital
@@ -184,38 +184,38 @@ export default async function Axuore() {
               Empowering your brand with innovative technology and strategic
               marketing to achieve unparalleled growth.
             </p>
-            <button className="group inline-flex items-center space-x-2 bg-purple-900/50 border border-purple-500 px-6 py-3 rounded-md hover:bg-purple-900 transition-colors">
+            <Link href="#we-do" className="group inline-flex items-center space-x-2 bg-purple-900/50 border border-purple-500 px-6 py-3 rounded-md hover:bg-purple-900 transition-colors">
               <span>Explore More</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </section>
       </div>
 
       {/* Services Section */}
       <section
-        className="relative min-h-screen flex flex-col justify-center bg-gradient-to-br from-black via-gray-900 to-emerald-900 overflow-hidden px-6 lg:px-14"
+        className="relative min-h-screen flex flex-col justify-center bg-gradient-to-br from-black via-gray-900 to-emerald-900 overflow-hidden px-4 sm:px-6 lg:px-14"
         id="we-do"
       >
         {/* "We Do ..." positioned at the top-left */}
-        <h2 className="absolute top-6 left-6 md:top-12 md:left-12 text-3xl font-bold text-emerald-400">
-        Discover Our Comprehensive Services
+        <h2 className="absolute top-4 sm:top-6 md:top-12 left-4 sm:left-6 md:left-12 text-xl sm:text-2xl md:text-3xl font-bold text-emerald-400">
+          Discover Our Comprehensive Services
         </h2>
 
-        <div className="container mx-auto flex-grow flex flex-col justify-center">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-8">
+        <div className="container mx-auto flex-grow flex flex-col justify-center py-8 sm:py-12">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10 mb-6 sm:mb-8">
             <div className="max-w-lg text-left">
-              <h3 className="text-3xl md:text-4xl font-bold text-center text-white">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center sm:text-left text-white">
                 Innovative Solutions for a Smarter Tomorrow.
               </h3>
             </div>
-            <div className="relative rounded-3xl overflow-hidden">
+            <div className="relative rounded-3xl overflow-hidden w-full sm:w-auto">
               <Image
                 src="/assets/service-section2.png"
                 alt="Technology Solutions"
                 width={500}
                 height={200}
-                className="object-cover"
+                className="object-cover w-full sm:w-[500px] h-auto"
               />
             </div>
           </div>
@@ -231,17 +231,18 @@ export default async function Axuore() {
                   key={index}
                   className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/5 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30"
                 >
-                  <Card className="bg-[#001a00] backdrop-blur-lg border border-emerald-500/30 rounded-xl shadow-md">
-                    <CardContent className="flex flex-col items-center text-center justify-center p-6">
-                      <div className="rounded-lg p-4 bg-black border border-emerald-500/20 mb-4">
+                  <Card className="bg-gray-800 backdrop-blur-lg border border-   rounded-xl shadow-md hover:bg-gray-700 transition-colors">
+                    <CardContent className="flex flex-col items-center text-center justify-center p-4 sm:p-6">
+                      <div className="rounded-lg p-3 sm:p-4 bg-black border border-emerald-600/20 mb-3 sm:mb-4">
                         <Image
                           src={service.Image}
                           alt={service.title}
-                          width={100}
-                          height={100}
+                          width={80}
+                          height={80}
+                          className="w-16 h-16 sm:w-20 sm:h-20"
                         />
                       </div>
-                      <h4 className="text-white text-center whitespace-pre-line">
+                      <h4 className="text-white text-center whitespace-pre-line text-sm sm:text-base">
                         {service.title}
                       </h4>
                     </CardContent>

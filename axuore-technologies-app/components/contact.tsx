@@ -65,10 +65,26 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6 bg-neutral-200 rounded-lg shadow-sm">
+    <div className="w-full max-w-3xl mx-auto p-6 bg-gray-700 backdrop-blur-lg rounded-lg shadow-sm justify-normal">
       <h2 className="text-2xl font-semibold text-blue-500 mb-6 text-center">
         Service Inquiry
       </h2>
+
+      {/* Description */}
+      <p className="text-lg sm:text-xl text-gray-200 leading-relaxed">
+        Fill out our Service Inquiry form to explore how Axuore Technologies can
+        transform your business with cutting-edge IT solutions, web development,
+        digital marketing, and more. We’ll work with you to understand your needs
+        and provide tailored recommendations to drive your success.
+      </p>
+
+      {/* Reassurance */}
+      <p className="text-lg sm:text-xl text-gray-300 pb-8">
+        After you submit the form, our team will review your inquiry and contact
+        you within 24-48 hours to discuss your project, answer questions, and
+        propose a personalized solution. Your information is secure, and our
+        experts are committed to delivering innovative, results-driven solutions.
+      </p>
 
       {/* Button to toggle form dialog visibility */}
       <div className="flex justify-center mb-6">
@@ -82,7 +98,7 @@ export default function Contact() {
 
       {/* Dialog to display the form */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="p-6 space-y-6 rounded-lg shadow-lg">
+        <DialogContent className="p-6 space-y-6 rounded-lg shadow-lg bg-gray-300">
           <DialogHeader>
             <DialogTitle className="text-blue-500">Service Inquiry Form</DialogTitle>
             <DialogDescription>
