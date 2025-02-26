@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -32,11 +32,12 @@ export default function Contact() {
   const [formData, setFormData] = useState(initialFormData);
   const [isDialogOpen, setIsDialogOpen] = useState(false); // State to toggle form dialog visibility
 
-  const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e:ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    setFormData({ ...formData, [target.name]: target.value });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e:FormEvent) => {
     e.preventDefault();
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 

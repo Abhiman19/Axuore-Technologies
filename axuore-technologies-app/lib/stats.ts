@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+"use server";
 import dbConnect from "@/lib/dbConnect";
 import Stats from "@/models/stats";
 
 
-export async function GET() {
+export async function getStats() {
   await dbConnect();
   const stats = await Stats.find();
-  return NextResponse.json({stats});
+  return stats;
 }

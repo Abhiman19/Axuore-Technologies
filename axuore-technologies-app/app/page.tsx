@@ -22,42 +22,46 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { SiFacebook, SiInstagram, SiX } from "@icons-pack/react-simple-icons";
 import TestimonialsContact from "@/components/contact";
+import { getTestimonials } from "@/lib/testimonials";
+import { getStats } from "@/lib/stats";
 
-const gettestimonials = async () => {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/testimonials`, {
-      cache: "no-store",
-    });
+// const gettestimonials = async () => {
+//   try {
+//     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+//     const res = await fetch(`${baseUrl}/api/testimonials`, {
+//       cache: "no-store",
+//     });
 
-    if (!res.ok) throw new Error("Failed to fetch testimonials");
+//     if (!res.ok) throw new Error("Failed to fetch testimonials");
 
-    return res.json();
-  } catch (error) {
-    console.error("Error fetching testimonials:", error);
-    return { testimonials: [] };
-  }
-};
+//     return res.json();
+//   } catch (error) {
+//     console.error("Error fetching testimonials:", error);
+//     return { testimonials: [] };
+//   }
+// };
 
-const getstats = async () => {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/stats`, {
-      cache: "no-store",
-    });
+// const getstats = async () => {
+//   try {
+//     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+//     const res = await fetch(`${baseUrl}/api/stats`, {
+//       cache: "no-store",
+//     });
 
-    if (!res.ok) throw new Error("Failed to fetch stats");
+//     if (!res.ok) throw new Error("Failed to fetch stats");
 
-    return res.json();
-  } catch (error) {
-    console.error("Error fetching stats:", error);
-    return { testimonials: [] };
-  }
-};
+//     return res.json();
+//   } catch (error) {
+//     console.error("Error fetching stats:", error);
+//     return { testimonials: [] };
+//   }
+// };
 
 export default async function Axuore() {
-  const { testimonials } = await gettestimonials();
-  const { stats } = await getstats();
+  const testimonials  = await getTestimonials();
+  // const { testimonials } = await gettestimonials();
+  const stats = await getStats();
+  // const { stats } = await getstats();
   const services = [
     {
       title: "UI / UX\nDesign",
@@ -362,7 +366,11 @@ export default async function Axuore() {
 
           {/* Stats Section */}
           <div className="grid md:grid-cols-3 gap-10">
-            {stats.map((stat: any, index: number) => {
+            {stats.map((stat: {
+              title: string,
+              value: string,
+              icon: string,
+            }, index: number) => {
               const Icon = statsIcon[index].icon;
               return (
                 <div
@@ -398,7 +406,11 @@ export default async function Axuore() {
 
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
               <CarouselContent className="-ml-3 md:-ml-6">
-                {testimonials.map((testimonial: any, index: number) => (
+                {testimonials.map((testimonial: {
+                  name: string,
+                  description: string,
+                  avatar : string,
+                }, index: number) => (
                   <CarouselItem
                     key={index}
                     className="pl-3 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
@@ -419,9 +431,6 @@ export default async function Axuore() {
                           <div>
                             <p className="text-xl font-semibold text-white">
                               {testimonial.name}
-                            </p>
-                            <p className="text-sm text-gray-400">
-                              {testimonial.position}
                             </p>
                           </div>
                         </div>
@@ -452,7 +461,7 @@ export default async function Axuore() {
           <div className="mb-8">
             <div className="flex space-x-4 group">
               <h2 className="text-4xl md:text-5xl font-bold text-white">
-                LET'S TALK
+                LET&apos;S TALK
               </h2>
               <ArrowRight className="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" />
             </div>
