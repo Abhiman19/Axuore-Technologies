@@ -25,40 +25,8 @@ import TestimonialsContact from "@/components/contact";
 import { getTestimonials } from "@/lib/testimonials";
 import { getStats } from "@/lib/stats";
 
-// const gettestimonials = async () => {
-//   try {
-//     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-//     const res = await fetch(`${baseUrl}/api/testimonials`, {
-//       cache: "no-store",
-//     });
-
-//     if (!res.ok) throw new Error("Failed to fetch testimonials");
-
-//     return res.json();
-//   } catch (error) {
-//     console.error("Error fetching testimonials:", error);
-//     return { testimonials: [] };
-//   }
-// };
-
-// const getstats = async () => {
-//   try {
-//     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-//     const res = await fetch(`${baseUrl}/api/stats`, {
-//       cache: "no-store",
-//     });
-
-//     if (!res.ok) throw new Error("Failed to fetch stats");
-
-//     return res.json();
-//   } catch (error) {
-//     console.error("Error fetching stats:", error);
-//     return { testimonials: [] };
-//   }
-// };
-
 export default async function Axuore() {
-  const testimonials  = await getTestimonials();
+  const testimonials = await getTestimonials();
   // const { testimonials } = await gettestimonials();
   const stats = await getStats();
   // const { stats } = await getstats();
@@ -188,7 +156,10 @@ export default async function Axuore() {
               Empowering your brand with innovative technology and strategic
               marketing to achieve unparalleled growth.
             </p>
-            <Link href="#we-do" className="group inline-flex items-center space-x-2 bg-purple-900/50 border border-purple-500 px-6 py-3 rounded-md hover:bg-purple-900 transition-colors">
+            <Link
+              href="#we-do"
+              className="group inline-flex items-center space-x-2 bg-purple-900/50 border border-purple-500 px-6 py-3 rounded-md hover:bg-purple-900 transition-colors"
+            >
               <span>Explore More</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -366,32 +337,37 @@ export default async function Axuore() {
 
           {/* Stats Section */}
           <div className="grid md:grid-cols-3 gap-10">
-            {stats.map((stat: {
-              title: string,
-              value: string,
-              icon: string,
-            }, index: number) => {
-              const Icon = statsIcon[index].icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-purple-500/10 rounded-lg p-6 backdrop-blur-lg 
+            {stats.map(
+              (
+                stat: {
+                  title: string;
+                  value: string;
+                  icon: string;
+                },
+                index: number
+              ) => {
+                const Icon = statsIcon[index].icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-purple-500/10 rounded-lg p-6 backdrop-blur-lg 
             transform hover:scale-105 transition-transform duration-300 shadow-lg"
-                >
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="p-4 bg-purple-500/20 rounded-full shadow-md">
-                      <Icon className="w-6 h-6 text-purple-300" />
+                  >
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="p-4 bg-purple-500/20 rounded-full shadow-md">
+                        <Icon className="w-6 h-6 text-purple-300" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-white">
+                        {stat.title}
+                      </h3>
+                      <p className="text-3xl font-bold text-purple-300">
+                        {stat.value}
+                      </p>
                     </div>
-                    <h3 className="text-xl font-semibold text-white">
-                      {stat.title}
-                    </h3>
-                    <p className="text-3xl font-bold text-purple-300">
-                      {stat.value}
-                    </p>
                   </div>
-                </div>
-              );
-            })}
+                );
+              }
+            )}
           </div>
         </div>
       </section>
@@ -406,43 +382,48 @@ export default async function Axuore() {
 
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
               <CarouselContent className="-ml-3 md:-ml-6">
-                {testimonials.map((testimonial: {
-                  name: string,
-                  description: string,
-                  avatar : string,
-                }, index: number) => (
-                  <CarouselItem
-                    key={index}
-                    className="pl-3 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-                  >
-                    <Card className="bg-[#2F4F2F]/80 border-0 p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105">
-                      <CardContent className="flex flex-col space-y-4 h-full">
-                        {/* Profile Picture & Name */}
-                        <div className="flex items-center space-x-4">
-                          <Avatar className="w-14 h-14">
-                            <AvatarImage
-                              src={testimonial.avatar}
-                              alt={testimonial.name}
-                            />
-                            <AvatarFallback>
-                              {testimonial.name[0]}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <p className="text-xl font-semibold text-white">
-                              {testimonial.name}
-                            </p>
+                {testimonials.map(
+                  (
+                    testimonial: {
+                      name: string;
+                      description: string;
+                      avatar: string;
+                    },
+                    index: number
+                  ) => (
+                    <CarouselItem
+                      key={index}
+                      className="pl-3 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                    >
+                      <Card className="bg-[#2F4F2F]/80 border-0 p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105">
+                        <CardContent className="flex flex-col space-y-4 h-full">
+                          {/* Profile Picture & Name */}
+                          <div className="flex items-center space-x-4">
+                            <Avatar className="w-14 h-14">
+                              <AvatarImage
+                                src={testimonial.avatar}
+                                alt={testimonial.name}
+                              />
+                              <AvatarFallback>
+                                {testimonial.name[0]}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="text-xl font-semibold text-white">
+                                {testimonial.name}
+                              </p>
+                            </div>
                           </div>
-                        </div>
 
-                        {/* Description */}
-                        <p className="text-base text-gray-300 leading-relaxed text-left">
-                          {testimonial.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
+                          {/* Description */}
+                          <p className="text-base text-gray-300 leading-relaxed text-left">
+                            {testimonial.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  )
+                )}
               </CarouselContent>
               <CarouselPrevious className="hidden md:flex" />
               <CarouselNext className="hidden md:flex" />
@@ -453,10 +434,7 @@ export default async function Axuore() {
       </section>
 
       {/* Contact Section */}
-      <footer
-        className="bg-black py-12 px-[72px]"
-        id="contacts"
-      >
+      <footer className="bg-black py-12 px-[72px]" id="contacts">
         <div className="container mx-auto">
           <div className="mb-8">
             <div className="flex space-x-4 group">

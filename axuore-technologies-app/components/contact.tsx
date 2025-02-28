@@ -66,8 +66,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6 bg-gray-700 backdrop-blur-lg rounded-lg shadow-sm justify-normal">
-      <h2 className="text-2xl font-semibold text-blue-500 mb-6 text-center">
+    <div className="w-full max-w-3xl mx-auto p-6 bg-purple-500/10 backdrop-blur-lg rounded-lg shadow-sm text-center border-purple-500 border-[1px]">
+      <h2 className="text-4xl font-semibold text-purple-500 mb-6 text-center">
         Service Inquiry
       </h2>
 
@@ -79,19 +79,11 @@ export default function Contact() {
         and provide tailored recommendations to drive your success.
       </p>
 
-      {/* Reassurance */}
-      <p className="text-lg sm:text-xl text-gray-300 pb-8">
-        After you submit the form, our team will review your inquiry and contact
-        you within 24-48 hours to discuss your project, answer questions, and
-        propose a personalized solution. Your information is secure, and our
-        experts are committed to delivering innovative, results-driven solutions.
-      </p>
-
       {/* Button to toggle form dialog visibility */}
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center my-6">
         <Button
           onClick={() => setIsDialogOpen(true)} // Open the dialog when button is clicked
-          className="bg-blue-500 hover:bg-blue-600 text-white"
+          className="bg-purple-500 hover:bg-purple-600 text-white"
         >
           Fill Out the Form
         </Button>
