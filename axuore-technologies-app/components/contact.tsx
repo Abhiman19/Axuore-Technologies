@@ -32,17 +32,15 @@ export default function Contact() {
   const [formData, setFormData] = useState(initialFormData);
   const [isDialogOpen, setIsDialogOpen] = useState(false); // State to toggle form dialog visibility
 
-  const handleChange = (e:ChangeEvent) => {
+  const handleChange = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
     setFormData({ ...formData, [target.name]: target.value });
   };
 
-  const handleSubmit = async (e:FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-
     try {
-      const response = await fetch(`${baseUrl}/api/send-email`, {
+      const response = await fetch(`/api/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -75,8 +73,8 @@ export default function Contact() {
       <p className="text-lg sm:text-xl text-gray-200 leading-relaxed">
         Fill out our Service Inquiry form to explore how Axuore Technologies can
         transform your business with cutting-edge IT solutions, web development,
-        digital marketing, and more. We’ll work with you to understand your needs
-        and provide tailored recommendations to drive your success.
+        digital marketing, and more. We’ll work with you to understand your
+        needs and provide tailored recommendations to drive your success.
       </p>
 
       {/* Button to toggle form dialog visibility */}
@@ -91,10 +89,12 @@ export default function Contact() {
 
       {/* Dialog to display the form */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="p-6 space-y-6 rounded-lg shadow-lg bg-gray-300">
+        <DialogContent className="p-6 space-y-6 rounded-lg shadow-lg bg-gray-200">
           <DialogHeader>
-            <DialogTitle className="text-blue-500">Service Inquiry Form</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-blue-500">
+              Service Inquiry Form
+            </DialogTitle>
+            <DialogDescription className="text-gray-600">
               Please provide your details and inquiry message.
             </DialogDescription>
           </DialogHeader>
@@ -103,7 +103,7 @@ export default function Contact() {
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Name Field */}
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-gray-500">
+              <Label htmlFor="name" className="text-black">
                 Full Name
               </Label>
               <Input
@@ -118,7 +118,7 @@ export default function Contact() {
             {/* Email & Phone Fields */}
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-500">
+                <Label htmlFor="email" className="text-black">
                   Email Address
                 </Label>
                 <Input
@@ -131,7 +131,7 @@ export default function Contact() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-gray-500">
+                <Label htmlFor="phone" className="text-black">
                   Phone Number
                 </Label>
                 <Input
@@ -147,7 +147,7 @@ export default function Contact() {
 
             {/* Service Selection */}
             <div className="space-y-2">
-              <Label className="text-gray-500">Select a Service</Label>
+              <Label className="text-black">Select a Service</Label>
               <Select
                 value={formData.service}
                 onValueChange={(value) =>
@@ -158,12 +158,16 @@ export default function Contact() {
                   <SelectValue placeholder="Choose a service" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Web Development">Web Development</SelectItem>
+                  <SelectItem value="Web Development">
+                    Web Development
+                  </SelectItem>
                   <SelectItem value="Mobile App Development">
                     Mobile App Development
                   </SelectItem>
                   <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
-                  <SelectItem value="Cloud Computing">Cloud Computing</SelectItem>
+                  <SelectItem value="Cloud Computing">
+                    Cloud Computing
+                  </SelectItem>
                   <SelectItem value="IT Consulting">IT Consulting</SelectItem>
                 </SelectContent>
               </Select>
@@ -171,7 +175,7 @@ export default function Contact() {
 
             {/* Message Field */}
             <div className="space-y-2">
-              <Label htmlFor="message" className="text-gray-500">
+              <Label htmlFor="message" className="text-black">
                 Project Details/Message
               </Label>
               <Textarea
@@ -188,7 +192,7 @@ export default function Contact() {
               <Button
                 type="reset"
                 variant="ghost"
-                className="text-gray-500 hover:text-gray-700"
+                className="text-black hover:bg-gray-300"
                 onClick={() => setFormData(initialFormData)}
               >
                 Reset

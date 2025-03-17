@@ -27,9 +27,7 @@ import { getStats } from "@/lib/stats";
 
 export default async function Axuore() {
   const testimonials = await getTestimonials();
-  // const { testimonials } = await gettestimonials();
   const stats = await getStats();
-  // const { stats } = await getstats();
   const services = [
     {
       title: "UI / UX\nDesign",
@@ -91,13 +89,16 @@ export default async function Axuore() {
     },
   ];
   return (
-    <div className="h-screen font-inknut">
+    <div className="h-screen">
       <div
-        className="min-h-screen bg-[url('/assets/landingPage2.jpg')] bg-cover bg-no-repeat bg-bottom text-white"
+        className="relative min-h-screen bg-[url('/assets/landingPage2.jpg')] bg-cover bg-no-repeat bg-bottom text-white"
         id="home"
       >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/70"></div>
+
         {/* Navigation */}
-        <nav className="container mx-auto px-6 lg:px-13 py-6">
+        <nav className="container relative z-10 mx-auto px-6 lg:px-13 py-6">
           <div className="flex items-center justify-between">
             <Link href="#home" className="flex items-center">
               <Image
@@ -146,7 +147,7 @@ export default async function Axuore() {
         </nav>
 
         {/* Hero Section */}
-        <section className="container mx-auto px-6 lg:px-13 md:py-16">
+        <section className="container relative z-10 mx-auto px-6 lg:px-13 md:py-24 flex flex-col justify-center">
           <div className="space-y-10 max-w-2xl">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">
               Transforming Businesses with Cutting-Edge IT Solutions and Digital

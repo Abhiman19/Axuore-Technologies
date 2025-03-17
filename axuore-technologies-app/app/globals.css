@@ -63,6 +63,9 @@
   body {
     @apply bg-background text-foreground;
     @apply font-inknut;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
   }
 }
 
@@ -80,4 +83,8 @@ body::-webkit-scrollbar {
 }
 *{-ms-overflow-style: none; 
 scrollbar-width: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
