@@ -6,10 +6,25 @@ const dbConnect = async () => {
     if (!mongoUri) {
       throw new Error("MONGODB_URI is not defined");
     }
-    await mongoose.connect(mongoUri);
-    console.log("MongoDB connected");
+    
+    // Ensure we're connecting to the correct database
+    let connectionUri = mongoUri;
+    if (!mongoUri.includes('/axouredb')) {
+      // If the URI doesn't specify axouredb, append it
+      if (mongoUri.endsWith('/')) {
+        connectionUri = mongoUri + 'axouredb';
+      } else if (mongoUri.includes('mongodb.net/') && !mongoUri.includes('mongodb.net/axouredb')) {
+        connectionUri = mongoUri.replace('mongodb.net/', 'mongodb.net/axouredb');
+      } else if (!mongoUri.includes('/') || mongoUri.endsWith('mongodb.net')) {
+        connectionUri = mongoUri + '/axouredb';
+      }
+    }
+    
+    await mongoose.connect(connectionUri);
+    console.log("MongoDB connected to axouredb database");
+    console.log("Current database:", mongoose.connection.db?.databaseName);
   } catch (error) {
-    console.log(error);
+    console.log("Database connection error:", error);
   }
 }
 

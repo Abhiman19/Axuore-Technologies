@@ -226,8 +226,8 @@ export default async function Axuore() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="hidden md:flex -left-12 bg-emerald-600/20 border-emerald-500/50 hover:bg-emerald-600/40 text-white" />
+            <CarouselNext className="hidden md:flex -right-12 bg-emerald-600/20 border-emerald-500/50 hover:bg-emerald-600/40 text-white" />
           </Carousel>
         </div>
       </section>
@@ -284,8 +284,8 @@ export default async function Axuore() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="hidden md:flex -left-12 bg-green-600/20 border-green-500/50 hover:bg-green-600/40 text-white" />
+            <CarouselNext className="hidden md:flex -right-12 bg-green-600/20 border-green-500/50 hover:bg-green-600/40 text-white" />
           </Carousel>
         </div>
       </section>
@@ -382,52 +382,68 @@ export default async function Axuore() {
             </h2>
 
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
-              <CarouselContent className="-ml-3 md:-ml-6">
+              <CarouselContent className="-ml-4 md:-ml-6">
                 {testimonials.map(
                   (
                     testimonial: {
                       name: string;
                       description: string;
-                      avatar: string;
+                      avatar?: string;
                     },
                     index: number
                   ) => (
                     <CarouselItem
                       key={index}
-                      className="pl-3 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                      className="pl-4 md:pl-6 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                     >
-                      <Card className="bg-[#2F4F2F]/80 border-0 p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105">
-                        <CardContent className="flex flex-col space-y-4 h-full">
-                          {/* Profile Picture & Name */}
-                          <div className="flex items-center space-x-4">
-                            <Avatar className="w-14 h-14">
+                      <Card className="bg-gradient-to-br from-[#2F4F2F]/90 to-[#1a3a1a]/90 border border-emerald-700/30 rounded-xl shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-emerald-500/20 hover:border-emerald-500/50 h-full">
+                        <CardContent className="flex flex-col p-6 h-full min-h-[280px] justify-between">
+                          {/* Quote Icon */}
+                          <div className="flex justify-start mb-4">
+                            <div className="w-8 h-8 bg-emerald-600/20 rounded-full flex items-center justify-center">
+                              <span className="text-emerald-400 text-lg font-bold">"</span>
+                            </div>
+                          </div>
+                          
+                          {/* Description */}
+                          <div className="flex-grow mb-6">
+                            <p className="text-sm md:text-base text-gray-200 leading-relaxed text-left italic overflow-hidden" 
+                               style={{
+                                 display: '-webkit-box',
+                                 WebkitLineClamp: 6,
+                                 WebkitBoxOrient: 'vertical' as const,
+                                 textOverflow: 'ellipsis'
+                               }}>
+                              "{testimonial.description}"
+                            </p>
+                          </div>
+
+                          {/* Profile Section */}
+                          <div className="flex items-center space-x-4 mt-auto pt-4 border-t border-emerald-700/30">
+                            <Avatar className="w-12 h-12 ring-2 ring-emerald-500/30">
                               <AvatarImage
-                                src={testimonial.avatar}
+                                src={testimonial.avatar || ''}
                                 alt={testimonial.name}
+                                className="object-cover"
                               />
-                              <AvatarFallback>
-                                {testimonial.name[0]}
+                              <AvatarFallback className="bg-emerald-600/20 text-emerald-300 font-semibold">
+                                {testimonial.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                               </AvatarFallback>
                             </Avatar>
-                            <div>
-                              <p className="text-xl font-semibold text-white">
+                            <div className="flex-1 min-w-0 flex items-center">
+                              <p className="text-lg font-semibold text-white truncate">
                                 {testimonial.name}
                               </p>
                             </div>
                           </div>
-
-                          {/* Description */}
-                          <p className="text-base text-gray-300 leading-relaxed text-left">
-                            {testimonial.description}
-                          </p>
                         </CardContent>
                       </Card>
                     </CarouselItem>
                   )
                 )}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
+              <CarouselPrevious className="hidden md:flex -left-12 bg-emerald-600/20 border-emerald-500/50 hover:bg-emerald-600/40 text-white" />
+              <CarouselNext className="hidden md:flex -right-12 bg-emerald-600/20 border-emerald-500/50 hover:bg-emerald-600/40 text-white" />
             </Carousel>
           </div>
           <TestimonialsContact />
