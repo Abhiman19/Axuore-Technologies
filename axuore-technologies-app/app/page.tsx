@@ -401,7 +401,7 @@ export default async function Axuore() {
                           {/* Quote Icon */}
                           <div className="flex justify-start mb-4">
                             <div className="w-8 h-8 bg-emerald-600/20 rounded-full flex items-center justify-center">
-                              <span className="text-emerald-400 text-lg font-bold">"</span>
+                              <span className="text-emerald-400 text-lg font-bold">&quot;</span>
                             </div>
                           </div>
                           
@@ -414,7 +414,7 @@ export default async function Axuore() {
                                  WebkitBoxOrient: 'vertical' as const,
                                  textOverflow: 'ellipsis'
                                }}>
-                              "{testimonial.description}"
+                              &quot;{testimonial.description}&quot;
                             </p>
                           </div>
 
